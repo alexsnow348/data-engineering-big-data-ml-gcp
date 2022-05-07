@@ -13,3 +13,6 @@ find $video_path  -type f -name '*.webm' -exec sh -c '
     rm -f ${file}
   done
 ' exec-sh {} +
+
+# combine all pdf files
+pdfunite *.pdf all.pdf

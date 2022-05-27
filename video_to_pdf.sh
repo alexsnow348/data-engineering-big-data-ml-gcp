@@ -15,4 +15,4 @@ find $video_path  -type f -name '*.webm' -exec sh -c '
 ' exec-sh {} +
 
 # combine all pdf files
-cd $video_path && pdfunite *.pdf combined.pdf
+cd $video_path && pdfunite $(ls *.pdf | sort -n)  combined.pdf

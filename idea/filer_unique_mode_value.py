@@ -6,10 +6,10 @@
 
 import pandas as pd
 wanted_columns = ['user_id',  'order_day_of_wk',
-                   'order_hr_of_day', 'days_since_prior_order',
-                   'add_to_cart_order', 'reordered',
-                   'tot_prod_bought',
-                   'tot_prod_per_order']
+                  'order_hr_of_day', 'days_since_prior_order',
+                  'add_to_cart_order', 'reordered',
+                  'tot_prod_bought',
+                  'tot_prod_per_order']
 
 
 # read csv file
@@ -17,6 +17,7 @@ instacart_df = pd.read_csv('idea/instacart_dataset_final.csv')
 selected_instacart_df = instacart_df[wanted_columns]
 
 # group by with user_id
-instacart_mode_only_df = selected_instacart_df.groupby(['user_id']).agg(lambda x:x.value_counts().index[0])
+instacart_mode_only_df = selected_instacart_df.groupby(
+    ['user_id']).agg(lambda x: x.value_counts().index[0])
 instacart_mode_only_df.reset_index(inplace=True)
-instacart_mode_only_df.to_csv('idea/filered_instacart_mode.csv',index=False)
+instacart_mode_only_df.to_csv('idea/filered_instacart_mode.csv', index=False)

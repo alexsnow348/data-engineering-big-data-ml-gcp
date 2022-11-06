@@ -17,8 +17,6 @@ instacart_df = pd.read_csv('idea/instacart_dataset_final.csv')
 selected_instacart_df = instacart_df[wanted_columns]
 
 # group by with user_id
-
-# instacart_mode_only_df = selected_instacart_df.groupby(['user_id']).agg(pd.Series.mode)
 instacart_mode_only_df = selected_instacart_df.groupby(['user_id']).agg(lambda x:x.value_counts().index[0])
 instacart_mode_only_df.reset_index(inplace=True)
 instacart_mode_only_df.to_csv('idea/filered_instacart_mode.csv',index=False)
